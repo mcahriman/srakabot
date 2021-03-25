@@ -1,0 +1,16 @@
+version: "3"
+services:
+
+  mongo-dev:
+    image: mongo
+    restart: always
+    environment:
+    - "MONGO_INITDB_ROOT_USERNAME=root"
+    - "MONGO_INITDB_ROOT_PASSWORD=admin"
+    - "PUID=1000"
+    - "PGID=1000"
+    volumes: 
+    - ./local/database:/data/db
+    ports:
+    - 27017:27017   
+    restart: unless-stopped
